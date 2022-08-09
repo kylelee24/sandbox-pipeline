@@ -17,8 +17,9 @@ on:
         required: true
         type: string
       runs-on:
-        required: true
         default: 'ubuntu-20.04'
+        required: true
+        type: string
 
 jobs:
   template1:

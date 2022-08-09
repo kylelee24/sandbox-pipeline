@@ -28,5 +28,5 @@ jobs:
           echo "Hello world"
       - name: Display inputs
         run: |
-          echo "${{ inputs.input1 }}"
-          echo "${{ inputs.input2 }}"
+          echo "Input 1: ${{ inputs.input1 }}"
+          echo "Input 2: ${{ inputs.input2 }}"

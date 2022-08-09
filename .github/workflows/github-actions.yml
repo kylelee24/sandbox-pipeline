@@ -33,21 +33,25 @@ jobs:
       # Override GitHub Actions rnuner
       # runs-on: 'ubuntu-18.04'
   template2_dev:
+    needs: template_1_dev
     uses: ./.github/workflows/template2.yml
     with:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      needs: '[template1_dev]'
+      # needs: '[template1_dev]'
       # Override GitHub Actions rnuner
       # runs-on: 'ubuntu-18.04'
   template2_prod:
+    needs: 
+      - template_1_dev
+      - template_1_prod
     uses: ./.github/workflows/template2.yml
     with:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      needs: '[template1_prod]'
+      # needs: '[template1_prod]'
       # Override GitHub Actions rnuner
       # runs-on: 'ubuntu-18.04'
 

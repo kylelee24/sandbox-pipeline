@@ -6,13 +6,13 @@ name: GitHub Actions Pipeline Template 2
 
 on:
   workflow_call:
-    # inputs:
-    #   username:
-    #     required: true
-    #     type: string
-    # secrets:
-    #   token:
-    #     required: true
+    inputs:
+      input1:
+        required: true
+        type: string
+      input2:
+        required: true
+        type: string
 
 jobs:
   template2:
@@ -22,3 +22,7 @@ jobs:
       - name: Goodbye world
         run: |
           echo "Goodbye world"
+      - name: Display inputs
+        run: |
+          echo "${{ inputs.input1 }}"
+          echo "${{ inputs.input2 }}"

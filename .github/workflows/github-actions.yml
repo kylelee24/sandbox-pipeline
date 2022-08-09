@@ -21,4 +21,5 @@ jobs:
     steps:
       - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
   template1:
-    uses: ./templates/template1.yml
+    # TODO: Remove branch reference
+    uses: ./templates/template1.yml@feature/reusable-workflows

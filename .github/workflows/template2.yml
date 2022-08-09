@@ -30,7 +30,7 @@ jobs:
     name: Template 2
     environment: '${{ inputs.environment }}'
     # needs: '${{ inputs.needs }}'
-    needs: '[template1_dev]'
+    needs: 'template1_dev'
     runs-on: '${{ inputs.runs-on }}'
     steps:
       - name: Goodbye world

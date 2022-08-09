@@ -38,7 +38,7 @@ jobs:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      needs: 'template1_dev'
+      needs: '[template1_dev]'
       # Override GitHub Actions rnuner
       # runs-on: 'ubuntu-18.04'
   template2_prod:
@@ -47,7 +47,7 @@ jobs:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      needs: 'template1_prod'
+      needs: '[template1_prod]'
       # Override GitHub Actions rnuner
       # runs-on: 'ubuntu-18.04'
 

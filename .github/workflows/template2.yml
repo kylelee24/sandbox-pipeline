@@ -18,7 +18,7 @@ on:
         type: string
       runs-on:
         default: 'ubuntu-20.04'
-        required: false
+        required: true
         type: string
 
 jobs:

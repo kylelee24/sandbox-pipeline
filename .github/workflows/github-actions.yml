@@ -16,8 +16,7 @@ on:
       - '**.md'
 
 jobs:
-  gha-pipeline-template:
-    runs-on: 'ubuntu-20.04'
   template1:
-    # TODO: Remove branch reference
     uses: ./.github/workflows/template1.yml
+  template2:
+    uses: ./.github/workflows/template2.yml

@@ -22,12 +22,14 @@ jobs:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
+      runs-on: ubuntu-18.04
   template1_prod:
     uses: ./.github/workflows/template1.yml
     with:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
+      runs-on: ubuntu-18.04
   template2_dev:
     uses: ./.github/workflows/template2.yml
     with:
@@ -40,3 +42,7 @@ jobs:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
+
+
+
+# TODO: depends on

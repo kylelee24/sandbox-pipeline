@@ -30,7 +30,7 @@ jobs:
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
       input_env1: ${{ github.env.input_env1 }}
-      input_env2: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env2 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 
@@ -41,7 +41,7 @@ jobs:
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
       input_env1: ${{ github.env.input_env1 }}
-      input_env2: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env2 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 

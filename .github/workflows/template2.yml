@@ -16,6 +16,10 @@ on:
       input2:
         required: true
         type: string
+      runs-on:
+        default: 'ubuntu-20.04'
+        required: false
+        type: string
 
 jobs:
   template2:

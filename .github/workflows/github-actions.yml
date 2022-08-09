@@ -1,19 +1,22 @@
 ############################################
-# GitHub Actions pipeline template 
+# GitHub Actions workflow template 
 ############################################
 
-name: GitHub Actions Pipeline Template
-
-# TODO: parameters/inputs
+# Name of the GitHub Actions workflow
+name: GitHub Actions Workfllow Template
 
 on:
-  # Manual pipeline enablement
+  # Manual workflow enablement
   workflow_dispatch:
-  # Automated pipeline triggers
+  # Automated workflow triggers
   push:
     paths-ignore:
       - 'docs/**'
       - '**.md'
+
+env:
+  MY_VAR_1: 'MY_VALUE_1'
+  MY_VAR_2: 'MY_VALUE_2'
 
 jobs:
   template1_dev:
@@ -22,27 +25,31 @@ jobs:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      # Override GitHub Actions rnuner
+      # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
+
   template1_prod:
     uses: ./.github/workflows/template1.yml
     with:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      # Override GitHub Actions rnuner
+      # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
+
   template2_dev:
+    # Dependant jobs array
     needs: template1_dev
     uses: ./.github/workflows/template2.yml
     with:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      # needs: '[template1_dev]'
-      # Override GitHub Actions rnuner
+      # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
+
   template2_prod:
+    # Dependant jobs array
     needs: 
       - template1_dev
       - template1_prod
@@ -51,8 +58,5 @@ jobs:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      # needs: '[template1_prod]'
-      # Override GitHub Actions rnuner
+      # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
-
-# TODO: depends on

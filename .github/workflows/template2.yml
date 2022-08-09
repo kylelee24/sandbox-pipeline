@@ -20,6 +20,7 @@ on:
 jobs:
   template2:
     name: Template 2
+    environment: '${{ inputs.environment }}'
     runs-on: 'ubuntu-20.04'
     steps:
       - name: Goodbye world

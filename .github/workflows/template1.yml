@@ -16,12 +16,15 @@ on:
       input2:
         required: true
         type: string
+      runs-on:
+        required: true
+        default: 'ubuntu-20.04'
 
 jobs:
   template1:
     name: Template 1
     environment: '${{ inputs.environment }}'
-    runs-on: 'ubuntu-20.04'
+    runs-on: '${{ inputs.runs-on }}'
     steps:
       - name: Hello world
         run: |

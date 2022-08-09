@@ -7,6 +7,9 @@ name: GitHub Actions Pipeline Template 1
 on:
   workflow_call:
     inputs:
+      environment:
+        required: true
+        type: string
       input1:
         required: true
         type: string
@@ -17,6 +20,7 @@ on:
 jobs:
   template1:
     name: Template 1
+    environment: '${{ inputs.environment }}'
     runs-on: 'ubuntu-20.04'
     steps:
       - name: Hello world

@@ -19,6 +19,7 @@ jobs:
   template1:
     uses: ./.github/workflows/template1.yml
     with:
+      environment: 'dev'
       input1: 'Markham'
       input2: 'Ontario'
   template2:

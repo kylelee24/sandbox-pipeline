@@ -17,7 +17,7 @@ on:
         required: true
         type: string
       needs:
-        default: '[]'
+        # default: '[]'
         required: false
         type: string
       runs-on:

@@ -16,14 +16,20 @@ on:
       - '**.md'
 
 jobs:
-  template1:
+  template1_dev:
     uses: ./.github/workflows/template1.yml
     with:
       environment: 'dev'
       input1: 'Markham'
       input2: 'Ontario'
-  template2:
-    uses: ./.github/workflows/template2.yml
+  template1_prod:
+    uses: ./.github/workflows/template1.yml
     with:
+      environment: 'prod'
       input1: 'Toronto'
       input2: 'Ontario'
+  # template2:
+  #   uses: ./.github/workflows/template2.yml
+  #   with:
+  #     input1: 'Toronto'
+  #     input2: 'Ontario'

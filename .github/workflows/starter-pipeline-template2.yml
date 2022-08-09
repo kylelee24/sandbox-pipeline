@@ -1,8 +1,8 @@
 ############################################
-# GitHub Actions workflow template 1
+# GitHub Actions workflow template 2
 ############################################
 
-name: GitHub Actions Workflow Template 1
+name: GitHub Actions Workflow Template 2
 
 on:
   workflow_call:
@@ -16,21 +16,30 @@ on:
       input2:
         required: true
         type: string
+      inputenv1:
+        required: true
+        type: string
+      inputenv2:
+        required: true
+        type: string
       runs-on:
-        default: 'ubuntu-20.04'
+        default: 'ubuntu-latest'
         required: false
         type: string
 
 jobs:
-  template1:
-    name: Template 1 (${{ inputs.environment }})
+  template2:
+    name: Template 2 (${{ inputs.environment }})
     environment: '${{ inputs.environment }}'
     runs-on: '${{ inputs.runs-on }}'
     steps:
-      - name: Hello world (${{ inputs.environment }})
+      - name: Goodbye world (${{ inputs.environment }})
         run: |
-          echo "Hello world"
+          echo "Goodbye world"
       - name: Display inputs (${{ inputs.environment }})
         run: |
           echo "Input 1: ${{ inputs.input1 }}"
           echo "Input 2: ${{ inputs.input2 }}"
+          echo "Input ENV 1: ${{ inputs.inputenv1 }}"
+          echo "Input ENV 2: ${{ inputs.inputenv2 }}"
+          echo "Needs: ${{ inputs.needs }}"

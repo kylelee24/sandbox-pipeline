@@ -2,6 +2,9 @@
 # GitHub Actions workflow template 
 ############################################
 
+# Known issues:
+# - TODO:?
+
 # Name of the GitHub Actions workflow
 name: GitHub Actions Workfllow Template
 
@@ -14,18 +17,25 @@ on:
       - 'docs/**'
       - '**.md'
 
+# TODO: syntax example - pass it in as input
+env:
+  inputenv1: 'test'
+  inputenv2: 'test2'
+
 jobs:
   template1_dev:
-    uses: ./.github/workflows/template1.yml
+    uses: ./.github/workflows/starter-pipeline-template1.yml
     with:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
+      inputenv1: ${{ env.inputenv1 }}
+      inputenv2: ${{ env.inputenv1 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 
   template1_prod:
-    uses: ./.github/workflows/template1.yml
+    uses: ./.github/workflows/starter-pipeline-template1.yml
     with:
       environment: 'prod'
       input1: 'PROD Input 1'
@@ -36,7 +46,7 @@ jobs:
   template2_dev:
     # Dependant jobs array
     needs: template1_dev
-    uses: ./.github/workflows/template2.yml
+    uses: ./.github/workflows/starter-pipeline-template2.yml
     with:
       environment: 'dev'
       input1: 'DEV Input 1'
@@ -49,7 +59,7 @@ jobs:
     needs: 
       - template1_dev
       - template1_prod
-    uses: ./.github/workflows/template2.yml
+    uses: ./.github/workflows/starter-pipeline-template2.yml
     with:
       environment: 'prod'
       input1: 'PROD Input 1'

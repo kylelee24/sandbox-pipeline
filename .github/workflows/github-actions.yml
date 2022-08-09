@@ -21,8 +21,8 @@ env:
 jobs:
   template1_dev:
     env:
-      MY_VAR_1: ${{ env.MY_VAR_1 }}
-      MY_VAR_2: ${{ env.MY_VAR_2 }}
+      MY_VAR_1: ${{ github.env.MY_VAR_1 }}
+      MY_VAR_2: ${{ github.env.MY_VAR_2 }}
     uses: ./.github/workflows/template1.yml
     with:
       environment: 'dev'

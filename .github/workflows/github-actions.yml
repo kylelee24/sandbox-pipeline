@@ -21,4 +21,4 @@ jobs:
     steps:
       - run: echo "This job is now running on a ${{ runner.os }} server hosted by GitHub!"
   template1:
-    uses: ./.github/workflows/templates/template1.yml
+    uses: ./templates/template1.yml

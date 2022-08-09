@@ -45,7 +45,7 @@ jobs:
   template2_prod:
     needs: 
       - template1_dev
-      - template2_prod
+      - template1_prod
     uses: ./.github/workflows/template2.yml
     with:
       environment: 'prod'

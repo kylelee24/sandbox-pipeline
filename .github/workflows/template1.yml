@@ -23,7 +23,7 @@ on:
 
 jobs:
   template1:
-    name: Template 1
+    name: Template 1 (${{ inputs.environment }})
     environment: '${{ inputs.environment }}'
     runs-on: '${{ inputs.runs-on }}'
     steps:

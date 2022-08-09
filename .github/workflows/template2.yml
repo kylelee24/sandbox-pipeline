@@ -18,7 +18,7 @@ on:
         type: string
       needs:
         # default: '[]'
-        required: false
+        required: true
         type: string
       runs-on:
         default: 'ubuntu-20.04'

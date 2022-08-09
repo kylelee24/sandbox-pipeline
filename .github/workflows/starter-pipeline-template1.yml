@@ -16,10 +16,10 @@ on:
       input2:
         required: true
         type: string
-      inputenv1:
+      input_env1:
         required: true
         type: string
-      inputenv2:
+      input_env2:
         required: true
         type: string
       runs-on:

@@ -19,8 +19,8 @@ on:
 
 # TODO: syntax example - pass it in as input
 env:
-  inputenv1: 'test'
-  inputenv2: 'test2'
+  input_env1: 'test'
+  input_env2: 'test2'
 
 jobs:
   template1_dev:
@@ -29,8 +29,8 @@ jobs:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      inputenv1: ${{ env.inputenv1 }}
-      inputenv2: ${{ env.inputenv1 }}
+      input_env1: ${{ env.input_env1 }}
+      input_env2: ${{ env.input_env1 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 

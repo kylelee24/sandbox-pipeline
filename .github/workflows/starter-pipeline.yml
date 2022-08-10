@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
   # Automated workflow triggers
   push:
-    paths-ignore:
-      - 'docs/**'
-      - '**.md'
+    # paths-ignore:
+    #   - 'docs/**'
+    #   - '**.md'
 
 env:
   input_env1: 'test'

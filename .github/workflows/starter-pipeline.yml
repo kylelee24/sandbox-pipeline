@@ -19,11 +19,11 @@ env:
   input_env2: 'test2'
 
 jobs:
-  # greeting_job:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: "echo input_env1: $input_env1"
-  #     - run: "echo input_env2: $input_env2"
+  greeting_job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: "echo input_env1: $input_env1"
+      - run: "echo input_env2: $input_env2"
         
   template1_dev:
     uses: ./.github/workflows/starter-pipeline-template1.yml

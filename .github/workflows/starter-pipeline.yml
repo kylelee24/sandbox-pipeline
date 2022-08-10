@@ -1,0 +1,76 @@
+############################################
+# GitHub Actions workflow template 
+############################################
+
+# Name of the GitHub Actions workflow
+name: GitHub Actions Workfllow Template
+
+on:
+  # Manual workflow enablement
+  workflow_dispatch:
+  # Automated workflow triggers
+  push:
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+
+env:
+  input_env1: 'test'
+  input_env2: 'test2'
+
+jobs:
+  # greeting_job:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: "echo input_env1: $input_env1"
+  #     - run: "echo input_env2: $input_env2"
+        
+  template1_dev:
+    uses: ./.github/workflows/starter-pipeline-template1.yml
+    with:
+      environment: 'dev'
+      input1: 'DEV Input 1'
+      input2: 'DEV Input 2'
+      input_env1: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env2 }}
+      # Override GitHub Actions runner
+      # runs-on: 'ubuntu-18.04'
+
+  template1_prod:
+    uses: ./.github/workflows/starter-pipeline-template1.yml
+    with:
+      environment: 'prod'
+      input1: 'PROD Input 1'
+      input2: 'PROD Input 2'
+      input_env1: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env2 }}
+      # Override GitHub Actions runner
+      # runs-on: 'ubuntu-18.04'
+
+  template2_dev:
+    # Dependant jobs array
+    needs: template1_dev
+    uses: ./.github/workflows/starter-pipeline-template2.yml
+    with:
+      environment: 'dev'
+      input1: 'DEV Input 1'
+      input2: 'DEV Input 2'
+      input_env1: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env1 }}
+      # Override GitHub Actions runner
+      # runs-on: 'ubuntu-18.04'
+
+  template2_prod:
+    # Dependant jobs array
+    needs: 
+      - template1_dev
+      - template1_prod
+    uses: ./.github/workflows/starter-pipeline-template2.yml
+    with:
+      environment: 'prod'
+      input1: 'PROD Input 1'
+      input2: 'PROD Input 2'
+      input_env1: ${{ github.env.input_env1 }}
+      input_env2: ${{ github.env.input_env1 }}
+      # Override GitHub Actions runner
+      # runs-on: 'ubuntu-18.04'

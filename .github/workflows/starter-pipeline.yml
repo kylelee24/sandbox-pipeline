@@ -2,9 +2,6 @@
 # GitHub Actions workflow template 
 ############################################
 
-# Known issues:
-# - TODO:?
-
 # Name of the GitHub Actions workflow
 name: GitHub Actions Workfllow Template
 
@@ -17,7 +14,6 @@ on:
       - 'docs/**'
       - '**.md'
 
-# TODO: syntax example - pass it in as input
 env:
   input_env1: 'test'
   input_env2: 'test2'

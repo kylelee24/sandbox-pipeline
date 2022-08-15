@@ -23,9 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - run: "echo input_env1: $input_env1"
-      - run: "echo input_env1: ${{ github.env.input_env1 }}"
+      - run: "echo input_env1: ${{ env.input_env1 }}"
       # - run: "echo input_env2: $input_env2"
-      - run: "echo input_env2: ${{ github.env.input_env2 }}"
+      - run: "echo input_env2: ${{ env.input_env2 }}"
         
   template1_dev:
     uses: ./.github/workflows/starter-pipeline-template1.yml

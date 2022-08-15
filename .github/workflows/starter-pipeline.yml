@@ -14,29 +14,13 @@ on:
       - 'docs/**'
       - '**.md'
 
-env:
-  input_env1: 'test'
-  input_env2: 'test2'
-
 jobs:
-  vars:
-    runs-on: ubuntu-latest
-    steps:
-      - run: "echo input_env1: ${{ env.input_env1 }}"
-      - run: "echo input_env2: ${{ env.input_env2 }}"
-      - name: Set environment variables
-        run: |
-          echo "input_env1=${{ env.input_env1 }}" >> $GITHUB_ENV
-          echo "input_env2=${{ env.input_env2 }}" >> $GITHUB_ENV
-        
   template1_dev:
     uses: ./.github/workflows/starter-pipeline-template1.yml
     with:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      input_env1: ${{ env.input_env1 }}
-      input_env2: ${{ github.env.input_env2 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 
@@ -46,8 +30,6 @@ jobs:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      input_env1: ${{ github.env.input_env1 }}
-      input_env2: ${{ github.env.input_env2 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 
@@ -59,8 +41,6 @@ jobs:
       environment: 'dev'
       input1: 'DEV Input 1'
       input2: 'DEV Input 2'
-      input_env1: ${{ github.env.input_env1 }}
-      input_env2: ${{ github.env.input_env1 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'
 
@@ -74,7 +54,5 @@ jobs:
       environment: 'prod'
       input1: 'PROD Input 1'
       input2: 'PROD Input 2'
-      input_env1: ${{ github.env.input_env1 }}
-      input_env2: ${{ github.env.input_env1 }}
       # Override GitHub Actions runner
       # runs-on: 'ubuntu-18.04'

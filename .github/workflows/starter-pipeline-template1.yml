@@ -44,4 +44,4 @@ jobs:
           echo "Input ENV 2: ${{ inputs.input_env2 }}"
       - name: Display var test
         run: |
-          echo "env var - $input_env1"
+          env
